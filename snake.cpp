@@ -13,10 +13,7 @@ int iniy;
 int count=0;  
 bool ate=0;   //to know whether the fruit generated has been eaten or not
 int fx=0;     // fruit coordinates
-int fy=0;    
-
-
-
+int fy=0;   
 void fruit_gen(){
    fx = rand()%29; 
    fy = rand()%59; 
@@ -139,10 +136,10 @@ void input()
   }   
   return ;
   
-} 
+}
 void draw()
 {
- 
+  
   for (int i = 0; i < 30; i++)
   {
 
@@ -203,7 +200,7 @@ void draw()
 }
 void auto_move(){
    
-      if(inix-1==x){   // if no key was pressed then initial_x_coordinate -1 == last visited coordinate
+      if(inix-1==x){ 
           inix = x;
        x--;
       posx.push_back(x);
@@ -280,18 +277,15 @@ int main()
    cout<<"                                                 --it's not a bug it's a feature"<<endl;  
    b=0;
    cout<<"PRESS 1 TO START"<<endl; 
-   cin>>b; 
-   system("cls");
+   cin>>b;
   while (b)
   { 
-    
-    COORD cursorPosition;	cursorPosition.X = 0;	cursorPosition.Y = 0;
-SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursorPosition);
+    cout<<count<<endl; 
     draw();
     input();  
     auto_move();
     Sleep(120); 
-    //system("cls");  // this causes the flicker as everything is cleared before printing all over again
+    system("cls");  // this causes the flicker as everything is cleared before printing all over again
   }
 
   return 0;
